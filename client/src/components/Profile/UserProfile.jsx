@@ -86,6 +86,23 @@ const UserProfile = ({ }) => {
 
                             </>
                         )}
+                        {(userdata?.post === "Executive_01" && userdata?._id === user?.result?._id && user?.result) && (
+                            <>
+                                <div class="mt-10 text-center border-b pb-12">
+
+                                </div>
+                                <h1 className="text-center text-2xl mt-2 text-black font-semibold">Write a Blog</h1>
+                                <div class="mt-1 flex flex-col justify-center">
+
+                                    <div class="flex mt-10 gap-5 justify-center">
+                                        
+                                        <Link to="/blogCreate">
+                                            <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Create A Blog</button>
+                                        </Link>
+                                    </div>
+                                    </div>
+                            </>
+                        )}
 
                         {(userdata?.post === "Admin" && userdata?._id === user?.result?._id && user?.result) && (
                             <>
@@ -125,11 +142,11 @@ const UserProfile = ({ }) => {
                                                                 <label class="font-semibold text-sm text-black pb-1 block">Reason : {row.reason}</label>
                                                                 <label class="font-semibold text-sm text-black pb-1 block">Remark : {row.remarks}</label>
                                                                 <label class="font-semibold text-sm text-black pb-1 block">Status : {row.requestStatus}</label>
-                                                                {row.requestStatus === "Approved" ? 
-                                                        (row.outTime !== 0 && (new Date(row.outTime) - new Date(row.inTime)) >= row.requestTime * 24 * 60 * 60 * 1000 ?
-                                                         (<label class="font-semibold text-sm text-black pb-1 block">Return is Due</label>) :
-                                                          (<label class="font-semibold text-sm text-black pb-1 block">Member still has time to submit</label>)) :
-                                                           (row.requestStatus==="Declined")?(<label class="font-semibold text-sm text-black pb-1 block">You request has been rejected</label>):(row.requestStatus==="Approved and Returned"?(<label class="font-semibold text-sm text-black pb-1 block">The member as returned the equipment</label>):(<label class="font-semibold text-sm text-black pb-1 block">Do you want to accept this request</label>))}
+                                                                {row.requestStatus === "Approved" ?
+                                                                    (row.outTime !== 0 && (new Date(row.outTime) - new Date(row.inTime)) >= row.requestTime * 24 * 60 * 60 * 1000 ?
+                                                                        (<label class="font-semibold text-sm text-black pb-1 block">Return is Due</label>) :
+                                                                        (<label class="font-semibold text-sm text-black pb-1 block">Member still has time to submit</label>)) :
+                                                                    (row.requestStatus === "Declined") ? (<label class="font-semibold text-sm text-black pb-1 block">You request has been rejected</label>) : (row.requestStatus === "Approved and Returned" ? (<label class="font-semibold text-sm text-black pb-1 block">The member as returned the equipment</label>) : (<label class="font-semibold text-sm text-black pb-1 block">Do you want to accept this request</label>))}
 
 
 
@@ -202,12 +219,12 @@ const UserProfile = ({ }) => {
                                                         <label class="font-semibold text-sm text-black pb-1 block">Reason : {row.reason}</label>
                                                         <label class="font-semibold text-sm text-black pb-1 block">Remark : {row.remarks}</label>
                                                         <label class="font-semibold text-sm text-black pb-1 block">Status : {row.requestStatus}</label>
-                                                        
-                                                        {row.requestStatus === "Approved" ? 
-                                                        (row.outTime !== 0 && (new Date(row.outTime) - new Date(row.inTime)) >= row.requestTime * 24 * 60 * 60 * 1000 ?
-                                                         (<label class="font-semibold text-sm text-black pb-1 block">Return is Due</label>) :
-                                                          (<label class="font-semibold text-sm text-black pb-1 block">Dont worry you still have time to submit</label>)) :
-                                                           (row.requestStatus==="Declined")?(<label class="font-semibold text-sm text-black pb-1 block">You request has been rejected</label>):(<label class="font-semibold text-sm text-black pb-1 block">You request is sent</label>)}
+
+                                                        {row.requestStatus === "Approved" ?
+                                                            (row.outTime !== 0 && (new Date(row.outTime) - new Date(row.inTime)) >= row.requestTime * 24 * 60 * 60 * 1000 ?
+                                                                (<label class="font-semibold text-sm text-black pb-1 block">Return is Due</label>) :
+                                                                (<label class="font-semibold text-sm text-black pb-1 block">Dont worry you still have time to submit</label>)) :
+                                                            (row.requestStatus === "Declined") ? (<label class="font-semibold text-sm text-black pb-1 block">You request has been rejected</label>) : (<label class="font-semibold text-sm text-black pb-1 block">You request is sent</label>)}
 
                                                     </div>
 
@@ -230,7 +247,7 @@ const UserProfile = ({ }) => {
                 </div>
 
             </div>
-<Footer/>
+            <Footer />
         </div>
     )
 }

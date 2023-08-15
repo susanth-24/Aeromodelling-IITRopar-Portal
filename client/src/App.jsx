@@ -26,7 +26,7 @@ function App() {
         <Route path="/createExecutive"  Component={() => user?.result?.post==="Admin" &&user?.result?.email==="aeromodelling@iitrpr.ac.in" ? <Signup /> : <Navigate to="/" />} />
         <Route path="/profile/:id" element={<UserProfile />} />
         <Route path="/projects/:id" element={<ProjectDetails />} />
-        <Route path="/blogCreate" Component={() => user?.result?.post==="Admin" ||user?.result?.post==="Executive" ? <Blog /> : <Navigate to="/Projects" /> }/>
+        <Route path="/blogCreate" Component={() => user?.result?.post==="Admin" ||user?.result?.post==="Executive_01" ? <Blog /> : <Navigate to="/Projects" /> }/>
         <Route path="/blogs" element={<BlogPage/>}/>
         <Route path="/blogs/:id" element={<RealBlog/>}/>
         <Route path="/blogs/search"  element={<BlogPage />} />
