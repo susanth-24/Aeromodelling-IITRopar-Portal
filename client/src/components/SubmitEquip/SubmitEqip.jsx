@@ -65,7 +65,7 @@ const SubmitItem = () => {
                       <label class="font-semibold text-sm text-black pb-1 block">You have returned the equipment</label>
                     ) : row.requestStatus === "Declined" ? (
                       null
-                    ) : (
+                    ) : (row.requestStatus==="Approved"?(
                       <button
                         onClick={() => {
                           //console.log(post._id)
@@ -80,6 +80,9 @@ const SubmitItem = () => {
                           <path StrokeLinecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                         </svg>
                       </button>
+                    ):(                      <label class="font-semibold text-sm text-black pb-1 block">The approval is still pending</label>
+                    )
+                      
                     )}
 
 

@@ -86,7 +86,7 @@ const UserProfile = ({ }) => {
 
                             </>
                         )}
-                        {(userdata?.post === "Executive_01" && userdata?._id === user?.result?._id && user?.result) && (
+                        {(userdata?.post === "Executive" && userdata?._id === user?.result?._id && user?.result) && (
                             <>
                                 <div class="mt-10 text-center border-b pb-12">
 
